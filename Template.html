@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta property="og:title" content="QuantConnect Backtest Report: StrategyName"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.quantconnect.com/terminal/reports/e88376fccc06c2874b161324dee286e8"/>
+<meta property="og:description" content=""/>
+<meta property="og:site_name" content="QuantConnect.com"/>
+<meta property="og:url" content="https://www.quantconnect.com/terminal/reports/e88376fccc06c2874b161324dee286e8"/>
+<meta property="og:image" content="./images/return-prediction.png"/>
+<meta property="og:image" content="./images/annual-returns.png"/>
+<meta property="og:image" content="https://cdn.quantconnect.com/web/i/users/profile/default.jpg"/>
+<link rel="stylesheet" href="https://www.quantconnect.com/terminal/css/reports/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.quantconnect.com/terminal/css/reports/pdf.css">
+<script src="https://www.quantconnect.com/terminal/js/libraries/jquery.js"></script>
+<script src="https://www.quantconnect.com/terminal/js/libraries/bootstrap.min.js"></script>
+<script src="https://www.quantconnect.com/terminal/js/libraries/jquery.growl.js"></script>
+<link rel="stylesheet" href="https://www.quantconnect.com/terminal/css/libraries/jquery.growl.css">
+<style>
+#table-summary .fa-times {
+color: #d9534f;
+}
+
+#key-statistics tr > td:first-child,
+#author-metadata tr > td:first-child,
+#project-metadata tr > td:first-child,
+#key-statistics tr > td:first-child,
+#key-characteristics tr > td:first-child {
+font-family: Norpeth-Bold, Helvetica, Arial, sans-serif;
+font-weight: bold;
+}
+
+#author-metadata tr > td:first-child,
+#project-metadata tr > td:first-child,
+#key-characteristics tr > td:first-child {
+width: 66%;
+}
+
+#key-characteristics tr > td:first-child {
+width: 50%;
+}
+
+#key-characteristics tr > td:last-child {
+text-align: center;
+padding: 0;
+}
+
+#author-metadata tr > td:last-child,
+#project-metadata tr > td:last-child {
+text-align: center;
+}
+
+#key-statistics tr > td:last-child {
+text-align: right;
+}
+
+#key-statistics tr > td,
+#key-characteristics tr > td,
+table.table tr > td {
+vertical-align: middle;
+}
+
+table.table.align-top tr > td {
+vertical-align: top;
+}
+
+.table.qc-table.compact {
+height: 234px;
+}
+
+.table.qc-table.compact img {
+width: 100%;
+height: 100%;
+max-height: 196px;
+}
+
+#author-box img {
+max-width: 33%;
+height: auto;
+max-height: 33%;
+float: left;
+margin-right: 5px;
+margin-bottom: 5px;
+}
+
+.header .header-title {
+margin-top: 40px;
+line-height: 30px;
+position: absolute;
+left: 0;
+right: 0;
+text-align: center;
+}
+
+#strategy-description,
+#author-bio {
+max-height: 194px;
+word-wrap: break-word;
+height: 100%;
+}
+
+#author-box .fa-pencil,
+#description-box .fa-pencil {
+display: none;
+position: absolute;
+bottom: 0;
+right: 0;
+}
+
+#description-box:hover .fa-pencil,
+#author-box:hover .fa-pencil {
+display: block;
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="page">
+<div class="header">
+<div class="header-left">
+<img src="https://cdn.quantconnect.com/web/i/logo.png">
+</div>
+<div class="header-title">Strategy Report Summary</div>
+<div class="header-right">StrategyName</div>
+</div>
+<div class="content">
+<h1 class="hidden">Strategy Report</h1>
+<div class="container-row">
+<div class="col-xs-8">
+<table id="description-box" class="table qc-table compact no-margin align-top">
+<thead>
+<tr>
+<th>
+Strategy Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p id="strategy-description" class="text-justify editable" contentEditable="true" style="max-width: 590px;overflow: hidden;">
+
+</p>
+<i class="fa fa-pencil" style="margin: 15px;"></i>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table id="author-box" class="table qc-table compact no-margin align-top">
+<thead>
+<tr>
+<th>
+About the Author <span class="pull-right">Xiang Li</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./Profile.png">
+<p id="author-bio" class="text-justify editable" contentEditable="true" style="max-width: 286px;">
+
+</p>
+<i class="fa fa-pencil" style="margin: 15px 10px"></i>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container-row">
+<div class="col-xs-4">
+<table id="key-characteristics" class="table qc-table compact">
+<thead>
+<tr>
+<th colspan="2" >Key Characteristics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Significant Period:</td>
+<td><i class="fa fa-check" aria-hidden="true"></i></td>
+</tr>
+<tr>
+<td>Significant Trading:</td>
+<td><i class="fa fa-check" aria-hidden="true"></i></td>
+</tr>
+<tr>
+<td>Diversified:</td>
+<td><i class="fa fa-check" aria-hidden="true"></i></td>
+</tr>
+<tr>
+<td>Risk Control:</td>
+<td><i class="fa fa-times" aria-hidden="true"></i></td>
+</tr>
+<tr>
+<td>Markets</td>
+<td>Equity, Forex</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table id="key-characteristics" class="table qc-table compact">
+<thead>
+<tr>
+<th colspan="2" >Key Statistics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAGR:</td>
+<td>0.688 %</td>
+</tr>
+<tr>
+<td>Drawdown:</td>
+<td>40.1 %</td>
+</tr>
+<tr>
+<td>Sharpe Ratio:</td>
+<td>0.099</td>
+</tr>
+<tr>
+<td>Sortino Ratio:</td>
+<td>0.0122</td>
+</tr>
+<tr>
+<td>Trades per Day:</td>
+<td>6.46</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Monthly Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/monthly-returns.png?">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container-row">
+<div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Cumulative Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/return-prediction.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container-row">
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Annual Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/annual-returns.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Return Histogram</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/distribution-of-monthly-returns.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Asset Allocation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/asset-allocation-all.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="container-row">
+<div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Drawdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/drawdowns.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="footer-id">Hash:e88376fccc06c2874b161324dee286e8</div>
+Democratizing Finance, Empowering Individuals
+<div class="footer-page">1</div>
+</div>
+</div>
+<div class="page">
+<div class="header">
+<div class="header-left">
+<img src="https://cdn.quantconnect.com/web/i/logo.png">
+</div>
+<div class="header-title">Backtest Strategy Analysis</div>
+<div class="header-right">StrategyName</div>
+</div>
+<div class="content">
+<div class="container-row"> <div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Daily Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/daily-returns.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Leverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/leverage.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Net Holdings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/net-holdings.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Rolling Portfolio Beta to Equity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/rolling-portfolio-beta-to-equity.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-12">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Rolling Sharpe Ratio (6 Months)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/rolling-sharpe-ratio(6-month).png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> </div>
+<div class="footer">
+<div class="footer-id">Hash:e88376fccc06c2874b161324dee286e8</div>
+Democratizing Finance, Empowering Individuals
+<div class="footer-page">2</div>
+</div>
+</div>
+<div class="page">
+<div class="header">
+<div class="header-left">
+<img src="https://cdn.quantconnect.com/web/i/logo.png">
+</div>
+<div class="header-title">Backtest Strategy Analysis</div>
+<div class="header-right">StrategyName</div>
+</div>
+<div class="content">
+<div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Asset Allocation Equity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/asset-allocation-equity.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Asset Allocation Forex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/asset-allocation-forex.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"><div class="col-xs-12"><h3>Backtest Crisis Analysis</h3></div></div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis 2009q1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-2009q1.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis 2009q2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-2009q2.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis 9 11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-9-11.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Apr14</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-apr14.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Aug07</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-aug07.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Dotcom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-dotcom.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Ecb Ir Event 2012</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-ecb-ir-event-2012.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Fall2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-fall2015.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Flash Crash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-flash-crash.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> </div>
+<div class="footer">
+<div class="footer-id">Hash:e88376fccc06c2874b161324dee286e8</div>
+Democratizing Finance, Empowering Individuals
+<div class="footer-page">3</div>
+</div>
+</div>
+<div class="page">
+<div class="header">
+<div class="header-left">
+<img src="https://cdn.quantconnect.com/web/i/logo.png">
+</div>
+<div class="header-title">Backtest Crisis Analysis</div>
+<div class="header-right">StrategyName</div>
+</div>
+<div class="content">
+<div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Fukushima Melt Down 2011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-fukushima-melt-down-2011.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Gfc Crash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-gfc-crash.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Lehman Brothers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-lehman-brothers.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Low Volatility Bull Market</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-low-volatility-bull-market.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Mar08</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-mar08.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis New Normal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-new-normal.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Oct14</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-oct14.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-recovery.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Sept08</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-sept08.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="container-row"> <div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Us Downgrade European Debt Crisis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-us-downgrade-european-debt-crisis.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="col-xs-4">
+<table class="table qc-table compact">
+<thead>
+<tr>
+<th>Crisis Us Housing Bubble 2003</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<img src="./images/crisis-us-housing-bubble-2003.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> </div>
+<div class="footer">
+<div class="footer-id">Hash:e88376fccc06c2874b161324dee286e8</div>
+Democratizing Finance, Empowering Individuals
+<div class="footer-page">4</div>
+</div>
+</div>
+<div class="hide-print" style="width: 100%; height: 100px;">
+&nbsp;
+</div>
+
+<script>
+$(window).load(function () {
+var sdTimeOut = null;
+var bioTimeOut = null;
+
+$('#strategy-description.editable').bind('input propertychange', function () {
+clearTimeout(sdTimeOut);
+
+var description = this.textContent.trim();
+
+sdTimeOut = setTimeout(function () {
+$.post('/terminal/processReports/update', {
+description: description,
+id: 'e88376fccc06c2874b161324dee286e8'
+}, function (data) {
+if (typeof data !== 'undefined') {
+if (data.success === true) {
+$.growl.success({title: '', message: 'Description Saved'});
+} else {
+if (typeof data.message !== 'undefined') {
+$.growl.error({title: '', message: data.message});
+} else {
+$.growl.error({title: '', message: 'Description update failed'});
+}
+}
+}
+});
+
+}, 3000);
+});
+
+
+$('#author-bio.editable').bind('input propertychange', function () {
+clearTimeout(bioTimeOut);
+var bio = this.textContent.trim();
+bioTimeOut = setTimeout(function () {
+$.post('/terminal/processReports/update', {bio: bio}, function (data) {
+if (typeof data !== 'undefined') {
+if (data.success === true) {
+$.growl.success({title: '', message: 'Biography Saved'});
+} else {
+if (typeof data.message !== 'undefined') {
+$.growl.error({title: '', message: data.message});
+} else {
+$.growl.error({title: '', message: 'Biography update failed'});
+}
+}
+}
+});
+}, 3000);
+});
+});
+</script>
+</body>
+</html>

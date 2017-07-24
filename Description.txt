@@ -1,0 +1,3 @@
+Strategy Name
+Please write the description of your strategy here and it will be automatically filled into your report.
+The first line should be your strategy name.
