@@ -21,9 +21,6 @@ if(length(orders)>0){
   #Parse the info in the orders
   for(i in 1:length(orders))
   {
-    if(orders[[i]]$Tag=="Liquidated"){
-      next
-    }
     if(orders[[i]]$Value==0){
       next
     }
