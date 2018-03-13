@@ -28,7 +28,7 @@ html[152] = paste0(des[-1],collapse = "<br>")
 html[c(134, 362, 458, 650)] = paste0('<div class="header-right">',des[1],'</div>')
 
 #Fill auther-bio
-profile = readLines("profile.txt")
+profile = readLines("Profile.txt")
 html[165] = paste0('About the Author <span class="pull-right">',profile[1],'</span>')
 html[174] = paste0(profile[-1],collapse = "<br>")
 
